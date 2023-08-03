@@ -1,0 +1,16 @@
+h1, p {
+    text-align: center;
+
+}
+body{
+    background-image: url(""); 
+    background-size: 100%;
+} 
+.look{
+    border: 2px solid #000;
+    border-radius: 0px 40px;
+    height: 200px;
+    width: 50%;
+    padding: 20px 20px;
+   margin: 200px 400px;
+}
