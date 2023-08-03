@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ancestors * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .descendants * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("span").parents("div").css({ "color": "red", "border": "2px solid red" });
+            $("span").parentsUntil("div").css({ "color": "blue", "border": "2px solid blue" });
+            //jQuery Descendents
+            $("div").find("p").css({ "color": "red", "border": "2px solid red" });
+            $("div").children("p.first").css({ "color": "green", "border": "2px solid blue" });
+            //Next() nextAll() nextUntill() methods
+            $("h3").next().css({ "color": "red", "border": "4px solid red" });
+
+            $("p").nextUntil("h6").css({ "color": "red", "border": "2px solid red" });
+            $("h3").nextAll().css({ "color": "blue", "border": "4px solid blue" });
+            //prev() method
+            $("h6").prev().css({ "color": "red", "border": "2px solid red" });
+            //prevAll() method
+            $("h4").prevAll().css({ "color": "red", "border": "2px solid red" });
+            //prevUntil() method
+            $("p").prevUntil("h5").css({ "color": "red", "border": "2px solid red" });
+            //First(), last(), eq(), filter() and not() Methods
+            $(".divv1").first().css("color", "blue");
+            $(".divv1").last().css("background-color", "pink");
+            $("p").filter(".intro2").css("background-color", "yellow");
+            $("p").not(".intro2, .intro").css("background-color", "green");
+            $("p").filter(".intro1").css("background-color", "red");
+
+        });
+    </script>
+</head>
+
+<body>
+    <h2>jQuery ancestors</h2>
+    <div class="ancestors"> (great-great-grandparent)
+        <div style="width:500px;">div(great-grandparent)
+            <ul>ul (grandparent)
+                <li>li (direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h2>jQuery Descendents</h2>
+    <div class="descendants" style="width:500px;">div (current element)
+        <p class="first">p (child)
+            <span>span (grandchild)</span>
+        </p>
+        <p class="second">p (child)
+            <span>span (grandchild)</span>
+        </p>
+    </div>
+    <h2>Next() nextAll() nextUntill() methods</h2>
+    <div class="siblings">
+
+
+        <div>div (parent)
+            <p>p</p>
+            <span>span</span>
+
+            <h3>h3</h3>
+            <h4>h4</h4>
+            <h5>h5</h5>
+            <h6>h6</h6>
+            <p>p</p>
+        </div>
+    </div>
+    <h2>prev(), prev()and prevUntil() methods</h2>
+    <div class="siblings">
+
+        <div>div (parent)
+            <p>p</p>
+            <span>span</span>
+
+            <h3>h3</h3>
+            <h4>h4</h4>
+            <h5>h5</h5>
+            <h6>h6</h6>
+            <p>p</p>
+        </div>
+    </div>
+    <h2>First(), last(), eq(), filter() and not() Methods</h2>
+
+
+    <div class="divv1" style="border: 1px solid black;">
+        <h1>A paragraph in a div.</h1>
+        <h1>Another paragraph in a div.</h1>
+    </div>
+    <br>
+
+    <div class="divv1" style="border: 1px solid black;">
+        <h1>A paragraph in another div.</h1>
+        <h1>Another paragraph in another div.</h1>
+    </div>
+    <br>
+   
+    <p class="intro">I live in India.</p>
+    <p class="intro">I love my country.</p>
+    <p class="intro1">I love India.</p>
+    <p class="intro2">Welcome to Myworld.</p>
+    <p>My best friend is Mickey.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                alert("Text: " + $("#text").text());
+            });
+            $("#btn2").click(function () {
+                alert("HTML: " + $("#text").html());
+            });
+            $("#butt-att").click(function () {
+                alert($("#w3s").attr("href"));
+            });
+
+            $(document).ready(function () {
+                $("#butt-val").click(function () {
+                    alert("Value: " + $("#test").val());
+                });
+            });
+            //SET content by text(), html() and val()
+            $("#set-btn1").click(function () {
+                $("#set-test1").text("Text set!");
+            });
+            $("#set-btn2").click(function () {
+                $("#set-test2").html("<b>HTML tag set</b>");
+            });
+            $("#set-btn3").click(function () {
+                $("#set-test3").val("Value set");
+            });
+            // Callback Function for text(), html(), and val()
+            $("#callb-btn1").click(function () {
+                $("#callb-test1").text(function (i, origText) {
+                    return "Old text: " + origText + " New text: Hello DITSTEK! (index: " + i + ")";
+                });
+            });
+
+            $("#callb-btn2").click(function () {
+                $("#callb-test2").html(function (i, origText) {
+                    return "Old html: " + origText + " New html: Hello <i>DITS!</i> (index: " + i + ")";
+                });
+            });
+            //append
+            $("#apnd-btn1").click(function () {
+                $("#apnd").append(" <b>Appended text</b>.");
+            });
+            $("#apnd-btn2").click(function () {
+                $(".apnd-ol").append("<li>Appended item</li>");
+            });
+            //prepend
+            $("#prepnd-btn1").click(function () {
+                $("#prepnd").prepend("<b>Prepended text</b>. ");
+            });
+            $("#prepnd-btn2").click(function () {
+                $(".prepnd-ol").prepend("<li>Prepended item</li>");
+            });
+            //before and after
+            $("#before_btn1").click(function () {
+                $("img").before("<b>Before</b>");
+            });
+
+            $("#after_btn2").click(function () {
+                $("img").after("<i>After</i>");
+            });
+            //remove
+
+            $(".remove_d").click(function () {
+                $(".remv-test").remove();
+            });
+            //empty
+            $(".empty_d").click(function () {
+                $(".empt-test").empty();
+            });
+            //Toggle class method
+            $(".togg_1").click(function () {
+                $("h3, .para2").toggleClass("change-color");
+            });
+            //jquery css.
+            $(".jqry-css").click(function () {
+                $(".jq-css").css({ "background-color": "red", "font-size": "200%" });
+            });
+            //jquery dimensions
+            $(".dmnsn").click(function () {
+                $("#divv1").width(500).height(500);
+
+                //width and height
+                var txt = "";
+                txt += "Width of div: " + $("#divv1").width() + "</br>";
+                txt += "Height of div: " + $("#divv1").height() + "</br>";
+                //inner width and height
+                txt += "Inner width of div: " + $("#divv1").innerWidth() + "</br>";
+                txt += "Inner height of div: " + $("#divv1").innerHeight() + "</br>";;
+                //outer width and height
+                txt += "Outer width of div (margin included): " + $("#divv1").outerWidth() + "</br>";
+                txt += "Outer height of div (margin included): " + $("#divv1").outerHeight();
+                $("#divv1").html(txt);
+            });
+        });
+
+    </script>
+    <style>
+        .change-color {
+            color: red;
+        }
+
+        #divv1 {
+            height: 100px;
+            width: 300px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Get Content method by text(), html(), val() and attribute()</h2>
+    <p id="text">This is some <b>bold</b> text in a paragraph.</p>
+    <button id="btn1">Show Text</button>
+    <button id="btn2">Show HTML</button>
+    <br>
+    <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+    <button id="butt-att">Show href Value</button>
+    <br>
+    <p>Name: <input type="text" id="test" value="DITSTEK"></p>
+    <button id="butt-val">Show Value</button>
+    <h2>
+        SET content by text(), html() and val()
+    </h2>
+    <p id="set-test1">This is a paragraph.</p>
+    <p id="set-test2">This is another paragraph.</p>
+
+    <p>Input field: <input type="text" id="set-test3" value="DITSTEK"></p>
+
+    <button id="set-btn1">Set Text</button>
+    <button id="set-btn2">Set HTML</button>
+    <button id="set-btn3">Set Value</button>
+    <h2> Callback Function for text(), html(), and val()</h2>
+    <p id="callb-test1">This is a <b>bold</b> paragraph.</p>
+    <p id="callb-test2">This is another <i>italic</i> paragraph.</p>
+
+    <button id="callb-btn1">Show Old/New Text</button>
+    <button id="callb-btn2">Show Old/New HTML</button>
+    <h2>Append</h2>
+    <p id="apnd">This is a paragraph.</p>
+    <p id="apnd">This is another paragraph.</p>
+
+    <ol class="apnd-ol">
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ol>
+
+    <button id="apnd-btn1">Append text</button>
+    <button id="apnd-btn2">Append list items</button>
+
+    <h2>Prepend</h2>
+    <p id="prepnd">This is a paragraph.</p>
+    <p id="prepnd">This is another paragraph.</p>
+
+    <ol class="prepnd-ol">
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ol>
+
+    <button id="prepnd-btn1">Prepend text</button>
+    <button id="prepnd-btn2">Prepend list item</button>
+    <h2>Before and after</h2>
+
+    <body>
+
+        <img src="../Jueryassignment3(piyushdhiman)/z.png" alt="jQuery" width="100" height="140"><br><br>
+
+        <button id="before_btn1">Insert before</button>
+        <button id="after_btn2">Insert after</button>
+        <h2>Remove and Empty Method</h2>
+
+        <p>Click at button to remove box.</p>
+        <div class="remv-test" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+            <p class="empt-test">This is another paragraph.</p>
+            <p class="empt-test">This is another paragraph.</p>
+
+
+        </div>
+
+        <button class="empty_d">Empty</button>
+
+        <button class="remove_d">Remove</button>
+        <h2>Toggle class Method<h2>
+                <h3>Welcome</h3>
+                <h3>To our Organization 2</h3>
+
+                <p class="para2">You are in DITSTEK.</p>
+                <p class="para2">Thankyou.</p>
+
+                <button class="togg_1">Toggle class</button>
+                <h2>jquery css</h2>
+                <p class="jq-css" style="background-color:#ff0000">This is a paragraph.</p>
+                <p class="jq-css" style="background-color:#00ff00">This is a paragraph.</p>
+                <p class="jq-css" style="background-color:#0000ff">This is a paragraph.</p>
+
+                <button class="jqry-css">Set multiple styles for p</button>
+                <h2>jquery dimensions</h2>
+                <div id="divv1"></div>
+                <br>
+
+                <button class="dmnsn">Resize and find size</button>
+
+
+    </body>
+
+</html>

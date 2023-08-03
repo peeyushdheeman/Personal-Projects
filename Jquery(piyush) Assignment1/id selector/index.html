@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#ab").hide();
+
+            });
+        });
+        $(document).ready(function () {
+            $("#ac").click(function () {
+
+                $(this).hide();
+            });
+            
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <h2>welcome to heading</h2>
+
+    <p id="ab">Paragraph1 is here.</p>
+    <p id="ac">Paragraph2 is click here to to hide this</p>
+
+    <button>Click here to hide paragraph 1</button>
+    
+
+</body>
+
+</html>

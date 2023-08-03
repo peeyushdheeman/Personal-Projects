@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <script>
+
+        var x = 0;
+        var y = 0;
+        //on event
+        $(document).ready(function () {
+            $("p").on("click", function () {
+                $(this).hide();
+            });
+            //submit event
+            $("form").submit(function () {
+                alert("submitted")
+            });
+            // Change event
+            $(".change").change(function () {
+                $(this).css("background-color", "green");
+            });
+            // scroll event
+            $("div").scroll(function () {
+                $("span").text(x += 1);
+            });
+            //hide & show methods
+            $(".button-one").click(function () {
+                $(".para-hide").toggle();
+            });
+            //fade in-out method
+            $("#button2").click(function () {
+                $("#div1").fadeTo("slow", 0.15);
+                $("#div2").fadeTo("slow", 0.4);
+                $("#div3").fadeTo("slow", 0.7);
+            });
+            $("#slide1").click(function () {
+                $("#slide-panel").slideToggle("slow");
+            });
+            //Animation
+            $(".animie").click(function () {
+                var div = $(".div1");
+                div.animate({ height: '300px', opacity: '0.4' }, "slow");
+                div.animate({ width: '300px', opacity: '0.8' }, "slow");
+                div.animate({ height: '100px', opacity: '0.4' }, "slow");
+                div.animate({ width: '100px', opacity: '0.8' }, "slow");
+            });
+            $("#flip").click(function () {
+                $("#panel").slideDown(5000);
+            });
+            $("#stop").click(function () {
+                $("#panel").stop();
+            });
+            //Call back method
+            $(".callback").click(function () {
+                $("#p6").hide(1000);
+                console.log("paragraph is hidden");
+            });
+            //chaining method
+            $(".chain").click(function () {
+                $("#p6").css("color", "red")
+                    .slideUp(2000)
+                    .slideDown(2000)
+            });
+        });
+        //windows resize event
+        $(window).resize(function () {
+            $("#span1").text(y += 1);
+        });
+
+    </script>
+    <style>
+        #panel,
+        #flip {
+            padding: 5px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #555;
+            color: white;
+            border: solid 1px #666;
+            border-radius: 3px;
+        }
+
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>On Event</h2>
+    <p>On clicking this will disappear</p>
+    <h2>Submit Event</h2>
+    <form action="">
+        <input type="text" placeholder="Name"><br>
+        <input type="email" placeholder="Email"><br>
+        <input type="submit" value="Submit" id="button1">
+    </form>
+    <br><br>
+    <h2>Change event</h2>
+    <input type="text" class="change">
+
+    <p> write in textbox and enter or click ouside the textbox to see effect</p>
+    <br>
+    <h2> windows resize Event</h2>
+    <p>windows resized
+    <p id="span1">0 times</p>
+    </p>
+
+
+    <h2>Scroll event</h2>
+
+    <div style="border:1px solid black;width:200px;height:100px;overflow:scroll;">Dr. B. R. Ambedkar was popularly known
+        as Babasaheb Ambedkar and everyone knows that he was one of the architects of the Indian Constitution. He was a
+        very well-known political leader, eminent jurist, Buddhist activist, philosopher, anthropologist, historian,
+        orator, writer, economist, scholar and editor, too. Dr. Ambedkar fought to eradicate the social evils like
+        untouchability and for the rights of the dalits and other socially backward classes throughout his life. Dr.
+        Ambedkar was appointed as India's first Law Minister in the Cabinet of Jawaharlal Nehru. He was posthumously
+        awarded the Bharat Ratna, India's highest civilian honour in 1990.
+    </div>
+
+    <p>Scrolled <span>0</span> times.</p>
+    <br>
+    <h2>Hide & Show events</h2>
+    <button class="button-one">Toggle between hiding and showing the paragraphs</button>
+    <p class="para-hide"> This paragraph will toggled hide or showed after clicking the button</p><br>
+    <p>Demonstrate fadeTo() with different parameters.</p>
+
+    <button id="button2">Click to fade boxes</button><br><br>
+
+    <div id="div1" style="width:80px;height:80px;background-color:rgb(66, 41, 41)"></div><br>
+    <div id="div2" style="width:80px;height:80px;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;background-color:blue;"></div><br>
+    <h2>Slide toggler</h2>
+    <div id="slide1">Click to slide the panel down or up</div>
+    <div id="slide-panel">Hello world!</div>
+    <br>
+    <h2>Animation</h2>
+    <button class="animie">Start Animation</button>
+    <p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember
+        to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+    <div class="div1" style="background:#98bf21;height:100px;width:100px;position:relative;"></div>
+    <br>
+    <br>
+    <button id="stop">Stop sliding</button>
+
+    <div id="flip">Click to slide down panel</div>
+    <div id="panel">Hello world!</div>
+    <br>
+    <button class="callback">Hide</button>
+
+    <p id="p6">This paragraph's color gonna be changed and also see the animation effect on blue box.(open console to
+        see the callback effect)
+    </p>
+    <div class="chain" style="background-color:blue; width:200px; height:200px;"></div>
+
+</body>
+
+</html>
